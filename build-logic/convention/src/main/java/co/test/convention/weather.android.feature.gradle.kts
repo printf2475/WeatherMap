@@ -1,4 +1,3 @@
-import co.test.convention.configureCoilAndroid
 import co.test.convention.configureHiltAndroid
 import co.test.convention.libs
 
@@ -19,7 +18,6 @@ android {
 }
 
 configureHiltAndroid()
-configureCoilAndroid()
 
 dependencies {
     implementation(project(":core:designsystem"))

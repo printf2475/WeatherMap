@@ -1,4 +1,3 @@
-import co.test.convention.configureCoilAndroid
 import co.test.convention.configureHiltAndroid
 import co.test.convention.configureKotlinAndroid
 import co.test.convention.libs
@@ -10,7 +9,6 @@ plugins {
 
 configureKotlinAndroid()
 configureHiltAndroid()
-configureCoilAndroid()
 
 dependencies {
     val libs = project.extensions.libs
