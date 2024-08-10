@@ -12,7 +12,6 @@ kotlin = "2.0.0"
 ## Kotlin Symbol Processing
 # https://github.com/google/ksp/
 kotlinxCoroutinesAndroid = "1.8.1"
-kotlinxCoroutinesCore = "1.9.0-RC"
 ksp = "2.0.0-1.0.21"
 
 ## AndroidX
@@ -37,9 +36,6 @@ androidxComposeMaterial3 = "1.2.1"
 
 navigationCommonKtx = "2.7.7"
 
-
-# https://coil-kt.github.io/coil/compose/
-coil = "2.6.0"
 
 ## Hilt
 hilt = "2.48"
@@ -85,9 +81,6 @@ compose-compiler-gradle-plugin = { module = "org.jetbrains.kotlin:compose-compil
 maps-compose = { group = "com.google.maps.android", name = "maps-compose", version = "4.4.1"}
 play-services-maps = { group = "com.google.android.gms", name = "play-services-maps", version = "18.1.0"}
 
-## coil
-coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
-
 ## hilt
 hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
 hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "hilt" }
@@ -95,10 +88,7 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 
 ## kotlinx
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
-kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version = "1.6.3" }
-kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version = "0.3.7" }
-
 
 ## Ktor
 ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor" }
