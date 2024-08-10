@@ -12,6 +12,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.derivedStateOf
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
@@ -28,6 +31,8 @@ import co.test.model.WeatherModel
 import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.maps.android.compose.GoogleMap
+import com.google.maps.android.compose.Marker
+import com.google.maps.android.compose.MarkerState
 import com.google.maps.android.compose.rememberCameraPositionState
 
 @Composable
@@ -36,6 +41,14 @@ fun WeatherScreen(
     weatherModel: WeatherModel?,
     onSearch: () -> Unit,
 ) {
+    val cityLatLng by remember(cityModel) {
+        derivedStateOf {
+            LatLng(
+                cityModel?.coord?.lat ?: 0.0,
+                cityModel?.coord?.lon ?: 0.0
+            )
+        }
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -102,13 +115,16 @@ fun WeatherScreen(
                     .height(400.dp),
                 cameraPositionState = rememberCameraPositionState {
                     position = CameraPosition.fromLatLngZoom(
-                        LatLng(
-                            cityModel?.coord?.lat ?: 0.0,
-                            cityModel?.coord?.lon ?: 0.0
-                        ), 10f
+                        cityLatLng, 10f
+                    )
+                },
+            ){
+                if(cityLatLng.latitude != 0.0 && cityLatLng.longitude != 0.0){
+                    Marker(
+                        state = MarkerState(position = cityLatLng),
                     )
                 }
-            )
+            }
 
             RainCloudWindSpeedContent(
                 humidity = weatherModel.currentWeatherModel.humidity,
